@@ -102,7 +102,7 @@ php)
 startDocker)
     # echo "${CYAN}Install missing domain to /etc/hosts${RESTORE}"
     # addDomainToHost
-    cd $DIR/docker
+    cd $DIR/../docker
     docker-compose up -d
 
     echo "${CYAN}Done${RESTORE}"
@@ -115,7 +115,7 @@ stopDocker)
         echo "${LRED}Remove domain from /etc/hosts${RESTORE}"
         removeDomainFromHost
     fi
-    cd $DIR/docker
+    cd $DIR/../docker
     docker-compose down
     ;;
 dockerInfo)
