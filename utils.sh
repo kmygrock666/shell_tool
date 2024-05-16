@@ -22,26 +22,14 @@ WHITE=$(echo  '\033[01;37m')
 function Ianhelp() {
     cat <<EOF
 
-${CYAN}指令: galaxy {指令} [參數]${RESTORE}
+${CYAN}指令: ian {指令} [參數]${RESTORE}
 
 env...............基本資訊(ex. galaxy 安裝路徑)
-ad................廣宣圖片排序產生器
-sort..............遊戲排序產生sql
-logo..............遊戲LOGO產生
-ip................取消 ip 不再網域內
-restoreMusic......還原 new-nsk 舊背景音樂
-renewMusic........替換新的背景音樂到 new-nsk [參數]
 makesoftlink......軟連結
 php...............切換版本 [參數]
 startDocker.......啟動 mysql-redis-docker-compose
 stopDocker........停止 mysql-redis-docker-compose
 dockerInfo........查看詳情
-go qa.............前往[測試站]
-go dev............前往[開發站]
-go qagcp..........前往[gcp測試站]
-go prod...........前往[正式站]
-go prodgcp........前往[gcp正式站]
-go gcpsk..........前往[gcp小球] 2021/12/31 關閉
 info {site}.......取得資訊[qa,dev,qagcp,prod,prodgcp][測試站,開發站,gcp測試站,正式站,gcp正式站]
 weburl {site}.....取得bbgp網站[qa,prod] 預設平台大廳 切換彩票大廳(weburl qa lobby)
 *.................顯示幫助

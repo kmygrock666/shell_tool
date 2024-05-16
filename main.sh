@@ -42,39 +42,39 @@ EOF
     echo $3
     exit 0
     ;;
-ad)
-    cd ~/Desktop/廣宣/廣宣工具/廣宣圖片排序產生器
-    python3 ./auto_order.py
-    ;;
-sort)
-    cd ~/Desktop/廣宣/廣宣工具/遊戲排序產生sql
-    python3 ./game_sorting.py
-    ;;
-logo)
-    cd ~/Desktop/廣宣/廣宣工具/廣宣logo
-    python3 ./auto_logo.py
-    ;;
-ip)
-    sed -i '' '16i\
-        return true;
-        ' ~/docker/work/new-nsk/business_classes/Memcache/MemcacheIpBlocker.php
-    sed -i '' '48i\ 
-        return true;
-        ' ~/docker/work/new-nsk/www/lib/deny_ip.php
-    echo success
-    ;;
-restoreMusic)
-    work_path=$(pwd)
-    cp -f ~/Desktop/廣宣/BBback.mp3 $work_path/www/layout/video/mp3
-    echo "success copy to " $work_path
-    ;;
-renewMusic)
-    if [ -f "$subCommand" ]; then
-        work_path=$(pwd)
-        cp -f "$subCommand" $work_path/www/layout/video/mp3/BBback.mp3
-        echo "success copy to " $work_path
-    fi
-    ;;
+# ad)
+#     cd ~/Desktop/廣宣/廣宣工具/廣宣圖片排序產生器
+#     python3 ./auto_order.py
+#     ;;
+# sort)
+#     cd ~/Desktop/廣宣/廣宣工具/遊戲排序產生sql
+#     python3 ./game_sorting.py
+#     ;;
+# logo)
+#     cd ~/Desktop/廣宣/廣宣工具/廣宣logo
+#     python3 ./auto_logo.py
+#     ;;
+# ip)
+#     sed -i '' '16i\
+#         return true;
+#         ' ~/docker/work/new-nsk/business_classes/Memcache/MemcacheIpBlocker.php
+#     sed -i '' '48i\ 
+#         return true;
+#         ' ~/docker/work/new-nsk/www/lib/deny_ip.php
+#     echo success
+#     ;;
+# restoreMusic)
+#     work_path=$(pwd)
+#     cp -f ~/Desktop/廣宣/BBback.mp3 $work_path/www/layout/video/mp3
+#     echo "success copy to " $work_path
+#     ;;
+# renewMusic)
+#     if [ -f "$subCommand" ]; then
+#         work_path=$(pwd)
+#         cp -f "$subCommand" $work_path/www/layout/video/mp3/BBback.mp3
+#         echo "success copy to " $work_path
+#     fi
+#     ;;
 makesoftlink)
     # -L 是一個用於測試符號鏈接的文件測試運算符
     if [ -L "/usr/local/ian" ] || [ -L "/usr/local/bin/ian" ]; then
@@ -102,8 +102,7 @@ php)
 startDocker)
     # echo "${CYAN}Install missing domain to /etc/hosts${RESTORE}"
     # addDomainToHost
-    cd $DIR/../docker
-    docker-compose up -d
+    cd $DIR/../docker/mysql-redis && docker-compose up -d
 
     echo "${CYAN}Done${RESTORE}"
 
@@ -115,8 +114,8 @@ stopDocker)
         echo "${LRED}Remove domain from /etc/hosts${RESTORE}"
         removeDomainFromHost
     fi
-    cd $DIR/../docker
-    docker-compose down
+
+    cd $DIR/../docker/mysql-redis && docker-compose down    
     ;;
 dockerInfo)
     echo "${CYAN}mysql:${RESTORE}"
@@ -128,24 +127,24 @@ dockerInfo)
     echo "${CYAN}redis:${RESTORE}"
     echo "${CYAN}---port:${RESTORE}${YELLOW} 6379 ${RESTORE}"
     ;;
-goqa)
-    goto qa
-    ;;
-godev)
-    goto dev
-    ;;
-goprod)
-    goto prod
-    ;;
-gogcpsk)
-    goto gcpsk
-    ;;
-goprodgcp)
-    goto prodgcp
-    ;;
-goqagcp)
-    goto qagcp
-    ;;
+# goqa)
+#     goto qa
+#     ;;
+# godev)
+#     goto dev
+#     ;;
+# goprod)
+#     goto prod
+#     ;;
+# gogcpsk)
+#     goto gcpsk
+#     ;;
+# goprodgcp)
+#     goto prodgcp
+#     ;;
+# goqagcp)
+#     goto qagcp
+#     ;;
 info$subCommand)
     info $subCommand
     ;;
